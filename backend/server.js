@@ -4,11 +4,11 @@ const dotenv = require("dotenv").config({ encoding: "latin1" });
 console.log("SALUT");
 
 
-const server = http.createServer((req, res) => {
-    res.end('Voilà la réponse du serveur !');
-});
+// const server = http.createServer((req, res) => {
+//     res.end('Voilà la réponse du serveur !');
+// });
 
-server.listen(process.env.PORT || 3000);
+// server.listen(process.env.PORT || 3000);
 
 
 /* Connection BDD mongoose */
