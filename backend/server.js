@@ -1,15 +1,7 @@
+/* Import des modules necessaires */
 const app = require("./app");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config({ encoding: "latin1" });
-console.log("SALUT");
-
-
-// const server = http.createServer((req, res) => {
-//     res.end('Voilà la réponse du serveur !');
-// });
-
-// server.listen(process.env.PORT || 3000);
-
 
 /* Connection BDD mongoose */
 mongoose
@@ -27,4 +19,3 @@ mongoose
     )
     // Arret du serveur si connection impossible
     .catch(() => console.log("Server connection failed !"));
-
