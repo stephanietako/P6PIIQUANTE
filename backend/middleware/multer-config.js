@@ -1,7 +1,8 @@
 /* Import des modules necessaires */
+// multer est un package de gestion de fichiers
 const multer = require("multer");
 
-// type d'image
+// type d'image(dictionnaire)
 const MIME_TYPES = {
     "image/jpg": "jpg",
     "image/jpeg": "jpg",
@@ -15,6 +16,7 @@ const storage = multer.diskStorage({
     filename: (req, file, callback) => {
         const name = file.originalname.split(" ").join("_");
         const extension = MIME_TYPES[file.mimetype];
+        // Date.now est un timestamp
         callback(null, name + Date.now() + "." + extension);
     },
 });
