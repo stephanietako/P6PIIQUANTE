@@ -26,7 +26,7 @@ exports.signup = (req, res, next) => {
 /* Controleur login */
 exports.login = (req, res, next) => {
     // Verification utilisateur existant
-    //findOne sert à trouver un element avec un filtre 
+    //filtre findOne
     User.findOne({ email: req.body.email })
         .then((user) => {
             if (!user) {
@@ -39,9 +39,11 @@ exports.login = (req, res, next) => {
                     if (!valid) {
                         return res.status(401).json({ error: "Mot de passe incorrect !" });
                     }
-                    // renvoie l'id de l'utilisateur depuis la base de données et un token web json signé(contenant également l'id de l utilisateur)
+                    // renvoie l'id de l'utilisateur depuis la base de données et un token web json signé(contenant également l'id de l utilisateur comme ça il sera impossible pour un utilisateur de modifier les objets d'un autre)
+
                     // Connexion valide = token 24H
                     res.status(200).json({
+                        // encoder un token pour vérifier que l'utilisateur s'est bien authentifié
                         userId: user._id,
                         token: jwt.sign({ userId: user._id }, process.env.SECRET_KEY, {
                             expiresIn: "24h",
