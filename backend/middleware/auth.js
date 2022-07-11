@@ -20,11 +20,4 @@ module.exports = (req, res, next) => {
             error: new Error("Invalid request!"),
         });
     }
-    //     req.auth = {
-    //         userId: userId
-    //     };
-    //     next();
-    // } catch (error) {
-    //     res.status(401).json({ error });
-    // }
 };

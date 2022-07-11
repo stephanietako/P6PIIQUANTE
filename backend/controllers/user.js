@@ -37,7 +37,7 @@ exports.login = (req, res, next) => {
                 .compare(req.body.password, user.password)
                 .then((valid) => {
                     if (!valid) {
-                        return res.status(401).json({ error: "Mot de passe incorrect !" });
+                        return res.status(401).json({ error: "Paire login/mot de passe incorrecte !" });
                     }
                     // renvoie l'id de l'utilisateur depuis la base de données et un token web json signé(contenant également l'id de l utilisateur comme ça il sera impossible pour un utilisateur de modifier les objets d'un autre)
 
